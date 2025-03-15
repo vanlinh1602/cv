@@ -11,16 +11,19 @@ function App() {
       <div className="max-w-5xl mx-auto p-5">
         <div className="overflow-hidden rounded-xl shadow-2xl bg-white dark:bg-gray-800">
           {/* Header Section */}
-          <header className="p-8 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 text-white relative">
+          <header
+            className="p-8 bg-gradient-to-r from-[#059669] to-[#047857] dark:from-gray-800/90 dark:via-gray-900 dark:to-emerald-950 text-white relative
+            after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_bottom_left,rgba(4,120,87,0.12),transparent_50%)] dark:after:bg-[radial-gradient(circle_at_bottom_left,rgba(5,150,105,0.08),transparent_50%)]"
+          >
             <button
               onClick={toggleDarkMode}
-              className="absolute top-4 right-4 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors duration-200 ease-in-out"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 dark:bg-gray-700/50 dark:hover:bg-gray-700/75 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? '☀️' : '🌙'}
             </button>
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-lg flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-gray-700 dark:to-gray-800">
+            <div className="flex flex-col md:flex-row items-center gap-6 relative z-[1]">
+              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/20 dark:border-emerald-900/30 shadow-lg shadow-black/5 dark:shadow-emerald-900/20 flex-shrink-0 bg-gradient-to-br from-[#059669] to-[#047857] dark:from-gray-800 dark:to-gray-900">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
                     src="/images/avatar.jpg"
@@ -30,24 +33,26 @@ function App() {
                 </div>
               </div>
               <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold">{config.userInfo.name}</h1>
-                <p className="text-xl mt-1 opacity-90">
+                <h1 className="text-3xl font-bold text-white dark:text-white/95">
+                  {config.userInfo.name}
+                </h1>
+                <p className="text-xl mt-1 text-white/90 dark:text-white/80">
                   {config.userInfo.title}
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-3">
                   <a
                     href={`mailto:${config.userInfo.email}`}
-                    className="flex items-center gap-2 hover:underline text-white!"
+                    className="flex items-center gap-2 hover:text-white/90 dark:hover:text-white/90 transition-colors duration-200 font-normal! text-white/90! dark:text-white/80!"
                   >
                     <span>📧</span> {config.userInfo.email}
                   </a>
                   <a
                     href={`tel:${config.userInfo.phone}`}
-                    className="flex items-center gap-2 hover:underline text-white!"
+                    className="flex items-center gap-2 hover:text-white/90 dark:hover:text-white/90 transition-colors duration-200 font-normal! text-white/90! dark:text-white/80!"
                   >
                     <span>📱</span> {config.userInfo.phone}
                   </a>
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 text-white/90 dark:text-white/80">
                     <span>📍</span> {config.userInfo.location}
                   </span>
                 </div>
@@ -81,7 +86,9 @@ function App() {
                           alt={link.label}
                           className="w-6 h-6"
                         />
-                        <span className="font-medium">{link.label}</span>
+                        <span className="font-medium text-gray-700 dark:text-gray-300">
+                          {link.label}
+                        </span>
                       </a>
                     ))}
                   </div>
@@ -95,11 +102,16 @@ function App() {
                     {config.skills.map((skill) => (
                       <span
                         key={skill.name}
-                        className="px-4 py-2 rounded-lg text-sm font-medium
-                          bg-white dark:bg-gray-700
-                          text-gray-700 dark:text-gray-200
-                          border border-gray-100 dark:border-gray-600
-                          shadow-sm"
+                        className="px-3 py-1.5 rounded-lg text-sm font-medium
+                          bg-emerald-50 hover:bg-emerald-100
+                          text-emerald-700 
+                          border border-emerald-200/50
+                          dark:bg-gray-700/50 dark:hover:bg-gray-700
+                          dark:text-emerald-400 dark:border-emerald-800/20
+                          shadow-sm hover:shadow
+                          transform hover:-translate-y-0.5
+                          transition-all duration-200 ease-in-out
+                          cursor-default"
                       >
                         {skill.name}
                       </span>
@@ -162,7 +174,7 @@ function App() {
                         <h3 className="text-lg font-bold">
                           {experience.title}
                         </h3>
-                        <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300">
+                        <span className="px-2 py-1 rounded text-xs font-medium bg-emerald-100 dark:bg-gray-600/20 text-emerald-700 dark:text-gray-300">
                           {experience.period}
                         </span>
                       </div>
@@ -192,7 +204,7 @@ function App() {
                     >
                       <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
                         <h3 className="text-lg font-bold">{edu.degree}</h3>
-                        <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300">
+                        <span className="px-2 py-1 rounded text-xs font-medium bg-emerald-100 dark:bg-gray-600/20 text-emerald-700 dark:text-gray-300">
                           {edu.period}
                         </span>
                       </div>
@@ -226,7 +238,7 @@ function App() {
                       <div className="p-5">
                         <div className="flex justify-between items-center mb-2">
                           <h3 className="text-lg font-bold">{project.name}</h3>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                          <span className="px-2 py-1 rounded text-xs font-medium bg-emerald-100 dark:bg-gray-600/20 text-emerald-700 dark:text-gray-300">
                             {project.year}
                           </span>
                         </div>
@@ -238,8 +250,8 @@ function App() {
                             <span
                               key={tech}
                               className="px-3 py-1.5 rounded-full text-xs font-medium
-                                bg-blue-50 dark:bg-gray-600 
-                                text-blue-600 dark:text-gray-200"
+                                bg-emerald-100 dark:bg-gray-600 
+                                text-emerald-700 dark:text-gray-200"
                             >
                               {tech}
                             </span>
@@ -252,7 +264,14 @@ function App() {
                               onClick={() =>
                                 window.open(project.link, '_blank')
                               }
-                              className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 rounded-lg text-xs! px-2! py-! text-center "
+                              className="text-emerald-700 bg-emerald-100 
+                                hover:bg-emerald-200 border border-emerald-200
+                                transition-all duration-200 ease-in-out
+                                focus:ring-4 focus:ring-emerald-500/50 
+                                dark:bg-gray-700 dark:text-emerald-400 
+                                dark:hover:bg-gray-600 dark:border-emerald-800
+                                rounded-lg text-xs px-4 py-2
+                                flex items-center gap-2 font-medium"
                             >
                               <span>🔗</span>
                               Link Project
@@ -262,15 +281,23 @@ function App() {
                             <button
                               type="button"
                               onClick={() => window.open(project.git, '_blank')}
-                              className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 rounded-lg text-xs! px-2! py-0! text-center flex items-center gap-1"
+                              className="text-emerald-700 bg-emerald-100 
+                                hover:bg-emerald-200 border border-emerald-200
+                                transition-all duration-200 ease-in-out
+                                focus:ring-4 focus:ring-emerald-500/50 
+                                dark:bg-gray-700 dark:text-emerald-400 
+                                dark:hover:bg-gray-600 dark:border-emerald-800
+                                rounded-lg text-xs px-4 py-2
+                                flex items-center gap-2 font-medium"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 x="0px"
                                 y="0px"
-                                width="25"
-                                height="25"
+                                width="20"
+                                height="20"
                                 viewBox="0 0 32 32"
+                                className="fill-current"
                               >
                                 <path
                                   fill-rule="evenodd"

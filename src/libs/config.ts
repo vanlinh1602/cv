@@ -46,7 +46,17 @@ export interface Education {
     description?: string;
 }
 
-export const config = {
+export interface Config {
+    userInfo: UserInfo;
+    certifications: Certification[];
+    skills: Skill[];
+    workExperience: WorkExperience[];
+    projects: Project[];
+    socialLinks: SocialLink[];
+    education: Education[];
+}
+
+export const config: Config = {
     userInfo: {
         name: 'Nguyen Van Linh',
         title: 'Software Engineer',
@@ -58,17 +68,28 @@ export const config = {
     },
 
     certifications: [
-        {
-            name: 'Certification Name',
-            organization: 'Issuing Organization',
-            year: '2022'
-        },
+        // {
+        //     name: 'Toeic 610',
+        //     organization: 'ETS',
+        //     year: '2023'
+        // },
     ],
 
     skills: [
+        { name: 'HTML' },
+        { name: 'CSS' },
+        { name: 'Javascript' },
+        { name: 'TailwindCSS' },
         { name: 'React' },
+        { name: 'Next.js' },
+        { name: 'Typescript' },
         { name: 'Node.js' },
-        { name: 'MongoDB' },
+        { name: 'NestJS' },
+        { name: 'SQL' },
+        { name: 'NoSQL' },
+        // { name: 'MongoDB' },
+        { name: 'Flutter' },
+        { name: 'Git' },
     ],
 
     workExperience: [
