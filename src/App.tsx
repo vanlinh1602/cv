@@ -15,13 +15,27 @@ function App() {
             className="p-8 bg-gradient-to-r from-[#059669] to-[#047857] dark:from-gray-800/90 dark:via-gray-900 dark:to-emerald-950 text-white relative
             after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_bottom_left,rgba(4,120,87,0.12),transparent_50%)] dark:after:bg-[radial-gradient(circle_at_bottom_left,rgba(5,150,105,0.08),transparent_50%)]"
           >
-            <button
+            <div
               onClick={toggleDarkMode}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 dark:bg-gray-700/50 dark:hover:bg-gray-700/75 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="absolute top-4 right-4 z-10 p-2 duration-300 ease-in-out bg-transparent cursor-pointer"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? '☀️' : '🌙'}
-            </button>
+              {isDarkMode ? (
+                <img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/?size=256&id=9313&format=png&color=FFFFFF"
+                  alt="sun--v1"
+                />
+              ) : (
+                <img
+                  width="30"
+                  height="30"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3UlEQVR4nO2VwUobURSGs7DVLpQSLfOfIGTTlW/gCxQkoi3YN3BRKLgquBBJpVt9C/ERulKCc86EBKwrtWIj1JV7C1o9l95yJ4lJ1JnMSOJCcuDA3Dtn7nf/c//LZDKD6EGo0LxKbu7pwYxrFfx9OqDvzargyghZl+7ZzfUfHHiFe+DAKyRewO5lXhjBJyNgFTpXxkyqDTig4CrVru3uBBnBj+auG7mYWnkqpd/fDhvGftgmpt/OIPWW0TtlbKrgRBmXKnSqgq0byU0nWdcIVQyjHF0Q0FIDWrPV3LgyXdxR3pHK9E+ZNmwpMxQNBbe+AT9cxFQNFwyw0BjvxIFbJqL1SDDDv61l+A8WqdAfV2DLk9lwHHiFROC68qPQVEw1ZVqzpfxIh2qOgHaAZXy0be5bEvj9hLTDu5vAKfDpfft8qJxpx22sabiE8JVkYPY+11uHY1vKv7773vp4o4KzpGBl/EwEtgdTL43QXhOuTB9sJTvmztwwPrprlKbdKmQM40vXlruCDhf2KhnbsXDDWO059BZOy5FgZfzqF1iFDqPBqRybEsy4jFFMtf4pxkkceK1vZywoRoJtefKV+4v03lgI3NqR4CZcmb46o4X38PFmMnWzotgVOohBPIv4D9w67fx1MKCQAAAAAElFTkSuQmCC"
+                  alt="partly-cloudy-night--v1"
+                />
+              )}
+            </div>
             <div className="flex flex-col md:flex-row items-center gap-6 relative z-[1]">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/20 dark:border-emerald-900/30 shadow-lg shadow-black/5 dark:shadow-emerald-900/20 flex-shrink-0 bg-gradient-to-br from-[#059669] to-[#047857] dark:from-gray-800 dark:to-gray-900">
                 <div className="w-full h-full flex items-center justify-center">
@@ -82,7 +96,9 @@ function App() {
                           border border-gray-100 dark:border-gray-600"
                       >
                         <img
-                          src={link.icon}
+                          src={`${link.icon}&color=${
+                            isDarkMode ? 'FFFFFF' : '000000'
+                          }`}
                           alt={link.label}
                           className="w-6 h-6"
                         />

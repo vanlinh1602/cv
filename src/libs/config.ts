@@ -90,6 +90,7 @@ export const config: Config = {
         // { name: 'MongoDB' },
         { name: 'Flutter' },
         { name: 'Git' },
+        { name: 'Discord JS' }
     ],
 
     workExperience: [
@@ -114,27 +115,35 @@ export const config: Config = {
             link: 'https://qr.nvlinh.com',
             git: 'https://github.com/vanlinh1602/qr-banking',
         },
+        {
+            name: 'Kuma Bot',
+            year: '2024',
+            description: 'A bot for Discord supporting auto checkin, redeem code, etc. for every Hoyoverse Game.',
+            technologies: ['Discord JS', 'Typescript'],
+            link: 'https://monsieur-kuma.github.io/kuma-bot/',
+            git: 'https://github.com/monsieur-kuma/kuma-bot',
+        },
     ],
 
     socialLinks: [
         {
             label: 'LinkedIn',
-            icon: 'https://img.icons8.com/?size=100&id=13930&format=png&color=000000',
+            icon: 'https://img.icons8.com/?size=100&id=98960&format=png',
             url: 'https://linkedin.com/in/linhnv1622'
         },
         {
             label: 'GitHub',
-            icon: 'https://img.icons8.com/?size=100&id=62856&format=png&color=000000',
+            icon: 'https://img.icons8.com/?size=100&id=62856&format=png',
             url: 'https://github.com/vanlinh1602'
         },
         {
             label: 'Twitter',
-            icon: 'https://img.icons8.com/?size=100&id=01GWmP9aUoPj&format=png&color=000000',
+            icon: 'https://img.icons8.com/?size=100&id=01GWmP9aUoPj&format=png',
             url: 'https://twitter.com/linhnv1622'
         },
         {
             label: 'Facebook',
-            icon: 'https://img.icons8.com/?size=100&id=118497&format=png&color=000000',
+            icon: 'https://img.icons8.com/?size=100&id=63453&format=png',
             url: 'https://facebook.com/MonsieurKuma'
         }
     ],
@@ -144,7 +153,7 @@ export const config: Config = {
             degree: 'Software Engineering',
             school: 'University of Information Technology (UIT)',
             period: '2020 - 2024',
-            description: 'Relevant coursework, achievements, or GPA if notable'
+            description: ''
         }
     ],
 };
